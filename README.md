@@ -1,2 +1,2 @@
-# JustEat
+# FoodClub
 Online food delivery
