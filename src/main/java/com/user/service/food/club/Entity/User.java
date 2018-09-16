@@ -23,10 +23,23 @@ public class User {
     private String postalCode;
     private Date dateOfBirth;
     private Boolean role;
+    private String password;
 
-    public Boolean getRole() { return role; }
+    public String getPassword() {
+        return password;
+    }
 
-    public void setRole(Boolean role) { this.role = role; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getRole() {
+        return role;
+    }
+
+    public void setRole(Boolean role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -94,6 +107,8 @@ public class User {
                 ", address='" + address + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
+                ", role=" + role +
+                ", password=" + password +
                 '}';
     }
 }
