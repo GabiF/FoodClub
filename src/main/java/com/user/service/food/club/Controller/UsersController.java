@@ -3,14 +3,12 @@ package com.user.service.food.club.Controller;
 import com.user.service.food.club.Entity.User;
 import com.user.service.food.club.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class HelloController {
+public class UsersController {
 
     @Autowired
     UserRepository userRepository;
@@ -21,8 +19,18 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET, produces = "application/json")
-    public List<User> getUsers() {
+    public List<User> retrieveAllUsers() {
         List<User> allUsers = userRepository.findAll();
         return allUsers;
+    }
+
+
+    @GetMapping("/students/{id}")
+    public User retrieveStudent(@PathVariable long id) {
+        User user = userRepository.findById(id);
+        if (user == null) {
+            return null;
+        }
+        return user;
     }
 }
