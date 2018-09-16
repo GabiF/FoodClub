@@ -15,13 +15,12 @@ public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String sayHello() {
-        return "Hello User";
+        return "Welcome Page";
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET, produces = "application/json")
     public List<User> retrieveAllUsers() {
-        List<User> allUsers = userRepository.findAll();
-        return allUsers;
+        return userRepository.findAll();
     }
 
 
@@ -33,4 +32,15 @@ public class UserController {
         }
         return user;
     }
+
+    @PostMapping("/save")
+    User user(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    void deleteUser(@PathVariable Long id) {
+        userRepository.delete(id);
+    }
+
 }
