@@ -22,6 +22,11 @@ public class User {
     private String address;
     private String postalCode;
     private Date dateOfBirth;
+    private Boolean role;
+
+    public Boolean getRole() { return role; }
+
+    public void setRole(Boolean role) { this.role = role; }
 
     public Long getId() {
         return id;
