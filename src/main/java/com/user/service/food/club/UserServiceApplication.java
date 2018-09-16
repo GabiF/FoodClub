@@ -1,12 +1,12 @@
-package com.food.club;
+package com.user.service.food.club;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloSpringApplication {
+public class UserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloSpringApplication.class, args);
+        SpringApplication.run(UserServiceApplication.class, args);
     }
 }

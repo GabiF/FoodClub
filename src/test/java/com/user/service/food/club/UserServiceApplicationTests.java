@@ -1,4 +1,4 @@
-package com.food.club;
+package com.user.service.food.club;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HelloSpringApplicationTests {
+public class UserServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {
