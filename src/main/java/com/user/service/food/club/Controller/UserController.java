@@ -1,6 +1,7 @@
 package com.user.service.food.club.Controller;
 
 import com.user.service.food.club.Entity.User;
+import com.user.service.food.club.Exception.UserNotFoundException;
 import com.user.service.food.club.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class UserController {
     public User retrieveStudent(@PathVariable long id) {
         User user = userRepository.findById(id);
         if (user == null) {
-            return null;
+            throw new UserNotFoundException("We could not find user: " + id);
         }
         return user;
     }
