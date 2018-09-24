@@ -1,10 +1,10 @@
 package com.user.service.food.club.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Restaurant {
@@ -15,42 +15,41 @@ public class Restaurant {
 
     @Id
     @GeneratedValue
-    private long Id;
+    private long id;
 
     @NotNull
+    @NotEmpty(message = "Please provide the name of the restaurant")
     private String name;
 
-    @NotNull
+    @Column(name = "email", nullable = false, unique = true)
+    @Email(message = "Please provide a valid e-mail address")
+    @NotEmpty(message = "Please provide an e-mail")
     private String email;
 
     @NotNull
-    private String address;
+    @Transient
+    private String password;
 
-    @NotNull
-    @Size(max = 300)
-    private String description;
-
-    @NotNull
-    private String postcode;
-
-    @NotNull
-    private Boolean role;
-
-    public long getId() {
-        return Id;
-    }
-
-    public Restaurant(String name, String email, String address, String description, String postcode, Boolean role) {
+    public Restaurant(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.address = address;
-        this.description = description;
-        this.postcode = postcode;
-        this.role = role;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -69,48 +68,13 @@ public class Restaurant {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public Boolean getRole() {
-        return role;
-    }
-
-    public void setRole(Boolean role) {
-        this.role = role;
-    }
-
     @Override
     public String toString() {
         return "Restaurant{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", description='" + description + '\'' +
-                ", postcode='" + postcode + '\'' +
-                ", role=" + role +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
