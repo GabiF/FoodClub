@@ -27,6 +27,7 @@ public class User extends Audit {
     private String lastName;
 
     @Column
+    @Transient
     private String password;
 
     public User() {
