@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Restaurant {
+public class Restaurant extends Audit {
 
     public Restaurant() {
         // Needed by JPA
@@ -18,6 +18,7 @@ public class Restaurant {
     private long id;
 
     @NotNull
+    @Column(name="name")
     @NotEmpty(message = "Please provide the name of the restaurant")
     private String name;
 
@@ -26,7 +27,6 @@ public class Restaurant {
     @NotEmpty(message = "Please provide an e-mail")
     private String email;
 
-    @NotNull
     @Column
     private String password;
 

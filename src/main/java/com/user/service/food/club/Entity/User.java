@@ -26,8 +26,8 @@ public class User extends Audit {
     @NotEmpty(message = "Please provide your last name")
     private String lastName;
 
+
     @Column
-    @Transient
     private String password;
 
     public User() {
