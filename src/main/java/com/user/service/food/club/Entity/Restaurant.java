@@ -27,7 +27,7 @@ public class Restaurant {
     private String email;
 
     @NotNull
-    @Transient
+    @Column
     private String password;
 
     public Restaurant(String name, String email, String password) {
